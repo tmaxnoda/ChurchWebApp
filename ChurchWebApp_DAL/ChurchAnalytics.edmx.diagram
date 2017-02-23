@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b79c6eee6e5b42f2a7f6182d4688d6b1" Name="Diagram1">
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_city" Width="1.5" PointX="8" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_country" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_department" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_department_member_position" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_hierarchy_description" Width="1.5" PointX="5.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_hy1" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_hy2" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_hy3" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_hy4" Width="1.5" PointX="9.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_hy5" Width="1.5" PointX="12" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_member_biodata" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_organization" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_position" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchAnalyticsModel.tbl_state" Width="1.5" PointX="5.75" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_city_tbl_state" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_organization_tbl_country" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_department_member_position_tbl_department" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_department_member_position_tbl_member_biodata" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_department_member_position_tbl_position" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy1_tbl_member_biodata" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy2_tbl_hy1" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy2_tbl_member_biodata" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy3_tbl_hy2" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy3_tbl_member_biodata" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy4_tbl_hy3" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy4_tbl_member_biodata" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy5_tbl_hy4" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchAnalyticsModel.FK_tbl_hy5_tbl_member_biodata" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

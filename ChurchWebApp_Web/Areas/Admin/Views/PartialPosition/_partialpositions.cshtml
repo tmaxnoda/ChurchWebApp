@@ -1,0 +1,96 @@
+﻿@using ChurchWebApp_Web.HtmlHelpers
+@using ChurchWebApp_Web.Areas.Admin.Models
+@model IEnumerable<PositionVM>
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <strong>Address List</strong>
+    </div>
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th>Position Names</th>
+                <td>
+                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Add", "createpartialposition", "PartialPosition", routeValues: new { PersonId = ViewBag.PersonID }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary pull-right" })
+                </td>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.position_name</td>
+
+
+
+
+                    <td>
+                        <div class="pull-right">
+                            @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Edit", "editposition", "Position", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                            &nbsp;
+                            @*@Html.NoEncodeActionLink("<span class='glyphicon glyphicon-search'></span>", "Details", "Details", "People", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                                &nbsp;*@
+                            @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Delete", "Delete", "People", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
+
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @: <div class="text-muted">&nbsp;No Position found</div>
+    }
+
+</div>    
+
+
+
+
+@*<script type="text/javascript">
+
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+
+            $("a[data-modal]").on("click", function (e) {
+                // hide dropdown if any (this is used wehen invoking modal from link in bootstrap dropdown )
+                //$(e.target).closest('.btn-group').children('.dropdown-toggle').dropdown('toggle');
+
+                $('#myModalContent').load(this.href, function () {
+                    $('#myModal').modal({
+                        /*backdrop: 'static',*/
+                        keyboard: true
+                    }, 'show');
+                    bindForm(this);
+                });
+                return false;
+            });
+        });
+
+        function bindForm(dialog) {
+            $('form', dialog).submit(function () {
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        if (result.success) {
+                            $('#myModal').modal('hide');
+                            $('#replacetarget').load(result.url); //  Load data from the server and place the returned HTML into the matched element
+                        } else {
+                            $('#myModalContent').html(result);
+                            bindForm(dialog);
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+    </script>*@
+
+

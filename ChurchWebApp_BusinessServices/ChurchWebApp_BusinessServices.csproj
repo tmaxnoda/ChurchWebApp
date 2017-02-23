@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0B1A86B-3E16-4B59-9A03-7120587AA2B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChurchWebApp_BusinessServices</RootNamespace>
+    <AssemblyName>ChurchWebApp_BusinessServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessRepositories\Bio_Dep_Pos_Services.cs" />
+    <Compile Include="BusinessRepositories\IBio_Dep_Pos_Services.cs" />
+    <Compile Include="BusinessRepositories\IDepartmentService.cs" />
+    <Compile Include="BusinessRepositories\DepartmentService.cs" />
+    <Compile Include="BusinessRepositories\PositionService.cs" />
+    <Compile Include="BusinessRepositories\BiodataRepositoriesService.cs" />
+    <Compile Include="BusinessRepositories\CountryRepositoryService.cs" />
+    <Compile Include="BusinessRepositories\IPositionService.cs" />
+    <Compile Include="BusinessRepositories\IBiodataRepositoryService.cs" />
+    <Compile Include="BusinessRepositories\ICountryRepositoryService.cs" />
+    <Compile Include="BusinessRepositories\IOrganizationRepositoryService.cs" />
+    <Compile Include="BusinessRepositories\IOrganizationHeirarchyOne.cs" />
+    <Compile Include="BusinessRepositories\OrganizationHeirarchyOne.cs" />
+    <Compile Include="BusinessRepositories\OrganizationRepositoryService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChurchWebApp_DAL\ChurchWebApp_DAL.csproj">
+      <Project>{4f265e4e-5229-4c5a-b7ed-90b476761f1d}</Project>
+      <Name>ChurchWebApp_DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,118 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+ 
+    <!--dynamic table-->
+    <link href="~/customview/html/js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+    <link href="~/customview/html/js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/customview/html/js/data-tables/DT_bootstrap.css" />
+
+
+    <link href="~/customview/html/css/style.css" rel="stylesheet">
+    <!--gritter css-->
+    @*<link rel="stylesheet" type="text/css" href="~/customview/html/js/gritter/css/jquery.gritter.css" />*@
+    @*<link href="~/customview/html/css/style.css" rel="stylesheet" />*@
+    <link href="~/customview/html/css/style-responsive.css" rel="stylesheet">
+    <!--Select 2 css-->
+    @*<link href="~/select2/dist/css/select2.css" rel="stylesheet" />*@
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/customview/js/html5shiv.js"></script>
+    <script src="/customview/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="sticky-header">
+    <section>
+
+        @RenderBody()
+
+    </section>
+    <!-- Placed js at the end of the document so the pages load faster -->
+   
+    <script src="~/customview/html/js/jquery-1.10.2.min.js"></script>
+    <script src="~/customview/html/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="~/customview/html/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/customview/html/js/bootstrap.min.js"></script>
+    <script src="~/customview/html/js/modernizr.min.js"></script>
+    <script src="~/customview/html/js/jquery.nicescroll.js"></script>
+    
+    <!--data table-->
+    @*<script type="text/javascript"   src="~/customview/html/js/data-tables/jquery.dataTables.js"></script>
+        <script type="text/javascript"   src="~/customview/html/js/data-tables/DT_bootstrap.js"></script>*@
+    <!--responsive table-->
+    <link href="~/customview/html/css/table-responsive.css" rel="stylesheet" />
+    <!--dynamic table-->
+    <script type="text/javascript" language="javascript" src="~/customview/html/js/advanced-datatable/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="~/customview/html/js/data-tables/DT_bootstrap.js"></script>
+    <!--dynamic table initialization -->
+    <script src="~/customview/html/js/dynamic_table_init.js"></script>
+
+    <!--common scripts for all pages-->
+    <script src="~/customview/html/js/scripts.js"></script>
+
+    <!--script for editable table-->
+    <script src="~/customview/html/js/editable-table.js"></script>
+    <!-- END JAVASCRIPTS -->
+   
+    <!---- Select 2 rference-->
+    @*<script src="~/select2/src/js/jquery.select2.js"></script>
+        <script src="~/select2/dist/js/select2.js"></script>*@
+    @*<script type="text/javascript">
+            $(".js-example-responsive").select2({
+
+                ajax: {
+                    url: '@Url.Action("searchForCountry", "Organization")',
+                    dataType: 'json',
+                    delay: 250,
+
+                    data: function (params) {
+
+                        return {
+                            q: params.term,
+                            // page: params.page
+                        };
+
+                    },
+
+
+                    processResults: function (data, search) {
+
+
+                        return {
+                            results: $.map(data, function (item) {
+                                return {
+
+                                    text: item.countries,
+                                    id: item.Id,
+                                }
+                            })
+                        }
+
+
+
+                    },
+
+                    cache: true
+                },
+
+                templateResult: function (item) {
+                    if (item.loading) return item.text;
+                    return item.text;
+                },
+                escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+                minimumInputLength: 1,
+
+
+
+            });
+        </script>*@
+</body>
+</html>
+

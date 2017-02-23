@@ -1,0 +1,72 @@
+﻿@using ChurchWebApp_Web.Areas.Admin.Models
+@model BioDepPositionVM
+
+@{
+    ViewBag.Title = "createBioDepPossition";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("saveBioDepPosition", "BioDepPosition"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <button class="btn btn-default" data-toggle="button">
+            <i class="fa fa-book"></i> Edit: Member , Department , Position
+        </button>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("Memeber Name", new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                <select class="js-example-responsive0" name="tbl_member_biodata_id" @*multiple="multiple"*@ id="combobox" style="width: 100%">
+                    <option value="3620194" selected="selected"> </option>
+
+                </select>
+                @Html.ValidationMessageFor(model => model.tbl_member_biodata_id, null, new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Department", new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                <select class="js-example-responsive1" name="tbl_department_id" id="combobox" style="width: 100%">
+                    <option value="3620194" selected="selected"> </option>
+
+                </select>
+                @Html.ValidationMessageFor(model => model.tbl_department_id, null, new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Position", new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                <select class="js-example-responsive2" name="tbl_position_id" id="combobox" style="width: 100%">
+                    <option value="3620194" selected="selected">  </option>
+
+                </select>
+                @Html.ValidationMessageFor(model => model.tbl_position_id, null, new { @class = "text-danger" })
+            </div>
+
+        </div>
+        @Html.HiddenFor(model => model.id)
+        <div class="form-group">
+            <div class="col-md-offset-6 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div*@>

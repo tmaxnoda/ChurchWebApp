@@ -1,0 +1,959 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ChurchAnalyticsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="city_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_department_member_position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tbl_position_id" Type="int" />
+          <Property Name="tbl_department_id" Type="int" />
+          <Property Name="tbl_member_biodata_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_hierarchy_description">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hierarchy_level" Type="varchar" MaxLength="50" />
+          <Property Name="hierarchy_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_hy1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="leaders_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_hy2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tbl_hy1_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="leaders_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_hy3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tbl_hy2_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="leaders_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_hy4">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tbl_hy3_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="leaders_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_hy5">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tbl_hy4_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="leaders_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_member_biodata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="middle_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dob" Type="datetime" Nullable="false" />
+          <Property Name="phone_number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="house_address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="photo" Type="varbinary(max)" />
+          <Property Name="marital_status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="house_fellowship_id" Type="int" />
+          <Property Name="date_of_initial_attendant" Type="datetime" />
+          <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="organization_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="organization_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="organization_state" Type="nvarchar" MaxLength="50" />
+          <Property Name="organization_city" Type="nvarchar" MaxLength="50" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="orgdiscription" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_state">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="state_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbl_city_tbl_state">
+          <End Role="tbl_state" Type="Self.tbl_state" Multiplicity="1" />
+          <End Role="tbl_city" Type="Self.tbl_city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_state">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_city">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_department_member_position_tbl_department">
+          <End Role="tbl_department" Type="Self.tbl_department" Multiplicity="0..1" />
+          <End Role="tbl_department_member_position" Type="Self.tbl_department_member_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_department_member_position">
+              <PropertyRef Name="tbl_department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_department_member_position_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="0..1" />
+          <End Role="tbl_department_member_position" Type="Self.tbl_department_member_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_department_member_position">
+              <PropertyRef Name="tbl_member_biodata_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_department_member_position_tbl_position">
+          <End Role="tbl_position" Type="Self.tbl_position" Multiplicity="0..1" />
+          <End Role="tbl_department_member_position" Type="Self.tbl_department_member_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_position">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_department_member_position">
+              <PropertyRef Name="tbl_position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy1_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy1" Type="Self.tbl_hy1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy1">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy2_tbl_hy1">
+          <End Role="tbl_hy1" Type="Self.tbl_hy1" Multiplicity="1" />
+          <End Role="tbl_hy2" Type="Self.tbl_hy2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_hy1">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy2">
+              <PropertyRef Name="tbl_hy1_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy2_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy2" Type="Self.tbl_hy2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy2">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy3_tbl_hy2">
+          <End Role="tbl_hy2" Type="Self.tbl_hy2" Multiplicity="1" />
+          <End Role="tbl_hy3" Type="Self.tbl_hy3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_hy2">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy3">
+              <PropertyRef Name="tbl_hy2_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy3_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy3" Type="Self.tbl_hy3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy3">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy4_tbl_hy3">
+          <End Role="tbl_hy3" Type="Self.tbl_hy3" Multiplicity="1" />
+          <End Role="tbl_hy4" Type="Self.tbl_hy4" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_hy3">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy4">
+              <PropertyRef Name="tbl_hy3_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy4_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy4" Type="Self.tbl_hy4" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy4">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy5_tbl_hy4">
+          <End Role="tbl_hy4" Type="Self.tbl_hy4" Multiplicity="1" />
+          <End Role="tbl_hy5" Type="Self.tbl_hy5" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_hy4">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy5">
+              <PropertyRef Name="tbl_hy4_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy5_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy5" Type="Self.tbl_hy5" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy5">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_organization_tbl_country">
+          <End Role="tbl_country" Type="Self.tbl_country" Multiplicity="1" />
+          <End Role="tbl_organization" Type="Self.tbl_organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_organization">
+              <PropertyRef Name="country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ChurchAnalyticsModelStoreContainer">
+          <EntitySet Name="tbl_city" EntityType="Self.tbl_city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_country" EntityType="Self.tbl_country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_department" EntityType="Self.tbl_department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_department_member_position" EntityType="Self.tbl_department_member_position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_hierarchy_description" EntityType="Self.tbl_hierarchy_description" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_hy1" EntityType="Self.tbl_hy1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_hy2" EntityType="Self.tbl_hy2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_hy3" EntityType="Self.tbl_hy3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_hy4" EntityType="Self.tbl_hy4" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_hy5" EntityType="Self.tbl_hy5" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_member_biodata" EntityType="Self.tbl_member_biodata" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_organization" EntityType="Self.tbl_organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_position" EntityType="Self.tbl_position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_state" EntityType="Self.tbl_state" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_city_tbl_state" Association="Self.FK_tbl_city_tbl_state">
+            <End Role="tbl_state" EntitySet="tbl_state" />
+            <End Role="tbl_city" EntitySet="tbl_city" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_department_member_position_tbl_department" Association="Self.FK_tbl_department_member_position_tbl_department">
+            <End Role="tbl_department" EntitySet="tbl_department" />
+            <End Role="tbl_department_member_position" EntitySet="tbl_department_member_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_department_member_position_tbl_member_biodata" Association="Self.FK_tbl_department_member_position_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_department_member_position" EntitySet="tbl_department_member_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_department_member_position_tbl_position" Association="Self.FK_tbl_department_member_position_tbl_position">
+            <End Role="tbl_position" EntitySet="tbl_position" />
+            <End Role="tbl_department_member_position" EntitySet="tbl_department_member_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy1_tbl_member_biodata" Association="Self.FK_tbl_hy1_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy1" EntitySet="tbl_hy1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy2_tbl_hy1" Association="Self.FK_tbl_hy2_tbl_hy1">
+            <End Role="tbl_hy1" EntitySet="tbl_hy1" />
+            <End Role="tbl_hy2" EntitySet="tbl_hy2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy2_tbl_member_biodata" Association="Self.FK_tbl_hy2_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy2" EntitySet="tbl_hy2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy3_tbl_hy2" Association="Self.FK_tbl_hy3_tbl_hy2">
+            <End Role="tbl_hy2" EntitySet="tbl_hy2" />
+            <End Role="tbl_hy3" EntitySet="tbl_hy3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy3_tbl_member_biodata" Association="Self.FK_tbl_hy3_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy3" EntitySet="tbl_hy3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy4_tbl_hy3" Association="Self.FK_tbl_hy4_tbl_hy3">
+            <End Role="tbl_hy3" EntitySet="tbl_hy3" />
+            <End Role="tbl_hy4" EntitySet="tbl_hy4" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy4_tbl_member_biodata" Association="Self.FK_tbl_hy4_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy4" EntitySet="tbl_hy4" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy5_tbl_hy4" Association="Self.FK_tbl_hy5_tbl_hy4">
+            <End Role="tbl_hy4" EntitySet="tbl_hy4" />
+            <End Role="tbl_hy5" EntitySet="tbl_hy5" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy5_tbl_member_biodata" Association="Self.FK_tbl_hy5_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy5" EntitySet="tbl_hy5" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_organization_tbl_country" Association="Self.FK_tbl_organization_tbl_country">
+            <End Role="tbl_country" EntitySet="tbl_country" />
+            <End Role="tbl_organization" EntitySet="tbl_organization" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ChurchAnalyticsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="city_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_state" Relationship="Self.FK_tbl_city_tbl_state" FromRole="tbl_city" ToRole="tbl_state" />
+        </EntityType>
+        <EntityType Name="tbl_country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_organization" Relationship="Self.FK_tbl_organization_tbl_country" FromRole="tbl_country" ToRole="tbl_organization" />
+        </EntityType>
+        <EntityType Name="tbl_department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_department_member_position" Relationship="Self.FK_tbl_department_member_position_tbl_department" FromRole="tbl_department" ToRole="tbl_department_member_position" />
+        </EntityType>
+        <EntityType Name="tbl_department_member_position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="tbl_position_id" Type="Int32" />
+          <Property Name="tbl_department_id" Type="Int32" />
+          <Property Name="tbl_member_biodata_id" Type="Int32" />
+          <NavigationProperty Name="tbl_department" Relationship="Self.FK_tbl_department_member_position_tbl_department" FromRole="tbl_department_member_position" ToRole="tbl_department" />
+          <NavigationProperty Name="tbl_member_biodata" Relationship="Self.FK_tbl_department_member_position_tbl_member_biodata" FromRole="tbl_department_member_position" ToRole="tbl_member_biodata" />
+          <NavigationProperty Name="tbl_position" Relationship="Self.FK_tbl_department_member_position_tbl_position" FromRole="tbl_department_member_position" ToRole="tbl_position" />
+        </EntityType>
+        <EntityType Name="tbl_hierarchy_description">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hierarchy_level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hierarchy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_hy1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="leaders_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_member_biodata" Relationship="Self.FK_tbl_hy1_tbl_member_biodata" FromRole="tbl_hy1" ToRole="tbl_member_biodata" />
+          <NavigationProperty Name="tbl_hy2" Relationship="Self.FK_tbl_hy2_tbl_hy1" FromRole="tbl_hy1" ToRole="tbl_hy2" />
+        </EntityType>
+        <EntityType Name="tbl_hy2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tbl_hy1_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="leaders_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_hy1" Relationship="Self.FK_tbl_hy2_tbl_hy1" FromRole="tbl_hy2" ToRole="tbl_hy1" />
+          <NavigationProperty Name="tbl_member_biodata" Relationship="Self.FK_tbl_hy2_tbl_member_biodata" FromRole="tbl_hy2" ToRole="tbl_member_biodata" />
+          <NavigationProperty Name="tbl_hy3" Relationship="Self.FK_tbl_hy3_tbl_hy2" FromRole="tbl_hy2" ToRole="tbl_hy3" />
+        </EntityType>
+        <EntityType Name="tbl_hy3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tbl_hy2_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="leaders_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_hy2" Relationship="Self.FK_tbl_hy3_tbl_hy2" FromRole="tbl_hy3" ToRole="tbl_hy2" />
+          <NavigationProperty Name="tbl_member_biodata" Relationship="Self.FK_tbl_hy3_tbl_member_biodata" FromRole="tbl_hy3" ToRole="tbl_member_biodata" />
+          <NavigationProperty Name="tbl_hy4" Relationship="Self.FK_tbl_hy4_tbl_hy3" FromRole="tbl_hy3" ToRole="tbl_hy4" />
+        </EntityType>
+        <EntityType Name="tbl_hy4">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tbl_hy3_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="leaders_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_hy3" Relationship="Self.FK_tbl_hy4_tbl_hy3" FromRole="tbl_hy4" ToRole="tbl_hy3" />
+          <NavigationProperty Name="tbl_member_biodata" Relationship="Self.FK_tbl_hy4_tbl_member_biodata" FromRole="tbl_hy4" ToRole="tbl_member_biodata" />
+          <NavigationProperty Name="tbl_hy5" Relationship="Self.FK_tbl_hy5_tbl_hy4" FromRole="tbl_hy4" ToRole="tbl_hy5" />
+        </EntityType>
+        <EntityType Name="tbl_hy5">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tbl_hy4_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="leaders_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_hy4" Relationship="Self.FK_tbl_hy5_tbl_hy4" FromRole="tbl_hy5" ToRole="tbl_hy4" />
+          <NavigationProperty Name="tbl_member_biodata" Relationship="Self.FK_tbl_hy5_tbl_member_biodata" FromRole="tbl_hy5" ToRole="tbl_member_biodata" />
+        </EntityType>
+        <EntityType Name="tbl_member_biodata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="house_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="marital_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="house_fellowship_id" Type="Int32" />
+          <Property Name="date_of_initial_attendant" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_department_member_position" Relationship="Self.FK_tbl_department_member_position_tbl_member_biodata" FromRole="tbl_member_biodata" ToRole="tbl_department_member_position" />
+          <NavigationProperty Name="tbl_hy1" Relationship="Self.FK_tbl_hy1_tbl_member_biodata" FromRole="tbl_member_biodata" ToRole="tbl_hy1" />
+          <NavigationProperty Name="tbl_hy2" Relationship="Self.FK_tbl_hy2_tbl_member_biodata" FromRole="tbl_member_biodata" ToRole="tbl_hy2" />
+          <NavigationProperty Name="tbl_hy3" Relationship="Self.FK_tbl_hy3_tbl_member_biodata" FromRole="tbl_member_biodata" ToRole="tbl_hy3" />
+          <NavigationProperty Name="tbl_hy4" Relationship="Self.FK_tbl_hy4_tbl_member_biodata" FromRole="tbl_member_biodata" ToRole="tbl_hy4" />
+          <NavigationProperty Name="tbl_hy5" Relationship="Self.FK_tbl_hy5_tbl_member_biodata" FromRole="tbl_member_biodata" ToRole="tbl_hy5" />
+        </EntityType>
+        <EntityType Name="tbl_organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="organization_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="organization_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="organization_state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="organization_city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="orgdiscription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_country" Relationship="Self.FK_tbl_organization_tbl_country" FromRole="tbl_organization" ToRole="tbl_country" />
+        </EntityType>
+        <EntityType Name="tbl_position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_department_member_position" Relationship="Self.FK_tbl_department_member_position_tbl_position" FromRole="tbl_position" ToRole="tbl_department_member_position" />
+        </EntityType>
+        <EntityType Name="tbl_state">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="state_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_city" Relationship="Self.FK_tbl_city_tbl_state" FromRole="tbl_state" ToRole="tbl_city" />
+        </EntityType>
+        <Association Name="FK_tbl_city_tbl_state">
+          <End Role="tbl_state" Type="Self.tbl_state" Multiplicity="1" />
+          <End Role="tbl_city" Type="Self.tbl_city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_state">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_city">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_organization_tbl_country">
+          <End Role="tbl_country" Type="Self.tbl_country" Multiplicity="1" />
+          <End Role="tbl_organization" Type="Self.tbl_organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_organization">
+              <PropertyRef Name="country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_department_member_position_tbl_department">
+          <End Role="tbl_department" Type="Self.tbl_department" Multiplicity="0..1" />
+          <End Role="tbl_department_member_position" Type="Self.tbl_department_member_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_department_member_position">
+              <PropertyRef Name="tbl_department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_department_member_position_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="0..1" />
+          <End Role="tbl_department_member_position" Type="Self.tbl_department_member_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_department_member_position">
+              <PropertyRef Name="tbl_member_biodata_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_department_member_position_tbl_position">
+          <End Role="tbl_position" Type="Self.tbl_position" Multiplicity="0..1" />
+          <End Role="tbl_department_member_position" Type="Self.tbl_department_member_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_position">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_department_member_position">
+              <PropertyRef Name="tbl_position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy1_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy1" Type="Self.tbl_hy1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy1">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy2_tbl_hy1">
+          <End Role="tbl_hy1" Type="Self.tbl_hy1" Multiplicity="1" />
+          <End Role="tbl_hy2" Type="Self.tbl_hy2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_hy1">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy2">
+              <PropertyRef Name="tbl_hy1_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy2_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy2" Type="Self.tbl_hy2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy2">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy3_tbl_hy2">
+          <End Role="tbl_hy2" Type="Self.tbl_hy2" Multiplicity="1" />
+          <End Role="tbl_hy3" Type="Self.tbl_hy3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_hy2">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy3">
+              <PropertyRef Name="tbl_hy2_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy3_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy3" Type="Self.tbl_hy3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy3">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy4_tbl_hy3">
+          <End Role="tbl_hy3" Type="Self.tbl_hy3" Multiplicity="1" />
+          <End Role="tbl_hy4" Type="Self.tbl_hy4" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_hy3">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy4">
+              <PropertyRef Name="tbl_hy3_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy4_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy4" Type="Self.tbl_hy4" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy4">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy5_tbl_hy4">
+          <End Role="tbl_hy4" Type="Self.tbl_hy4" Multiplicity="1" />
+          <End Role="tbl_hy5" Type="Self.tbl_hy5" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_hy4">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy5">
+              <PropertyRef Name="tbl_hy4_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_hy5_tbl_member_biodata">
+          <End Role="tbl_member_biodata" Type="Self.tbl_member_biodata" Multiplicity="1" />
+          <End Role="tbl_hy5" Type="Self.tbl_hy5" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member_biodata">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_hy5">
+              <PropertyRef Name="leaders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ChurchAnalytics" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_city" EntityType="Self.tbl_city" />
+          <EntitySet Name="tbl_country" EntityType="Self.tbl_country" />
+          <EntitySet Name="tbl_department" EntityType="Self.tbl_department" />
+          <EntitySet Name="tbl_department_member_position" EntityType="Self.tbl_department_member_position" />
+          <EntitySet Name="tbl_hierarchy_description" EntityType="Self.tbl_hierarchy_description" />
+          <EntitySet Name="tbl_hy1" EntityType="Self.tbl_hy1" />
+          <EntitySet Name="tbl_hy2" EntityType="Self.tbl_hy2" />
+          <EntitySet Name="tbl_hy3" EntityType="Self.tbl_hy3" />
+          <EntitySet Name="tbl_hy4" EntityType="Self.tbl_hy4" />
+          <EntitySet Name="tbl_hy5" EntityType="Self.tbl_hy5" />
+          <EntitySet Name="tbl_member_biodata" EntityType="Self.tbl_member_biodata" />
+          <EntitySet Name="tbl_organization" EntityType="Self.tbl_organization" />
+          <EntitySet Name="tbl_position" EntityType="Self.tbl_position" />
+          <EntitySet Name="tbl_state" EntityType="Self.tbl_state" />
+          <AssociationSet Name="FK_tbl_city_tbl_state" Association="Self.FK_tbl_city_tbl_state">
+            <End Role="tbl_state" EntitySet="tbl_state" />
+            <End Role="tbl_city" EntitySet="tbl_city" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_organization_tbl_country" Association="Self.FK_tbl_organization_tbl_country">
+            <End Role="tbl_country" EntitySet="tbl_country" />
+            <End Role="tbl_organization" EntitySet="tbl_organization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_department_member_position_tbl_department" Association="Self.FK_tbl_department_member_position_tbl_department">
+            <End Role="tbl_department" EntitySet="tbl_department" />
+            <End Role="tbl_department_member_position" EntitySet="tbl_department_member_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_department_member_position_tbl_member_biodata" Association="Self.FK_tbl_department_member_position_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_department_member_position" EntitySet="tbl_department_member_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_department_member_position_tbl_position" Association="Self.FK_tbl_department_member_position_tbl_position">
+            <End Role="tbl_position" EntitySet="tbl_position" />
+            <End Role="tbl_department_member_position" EntitySet="tbl_department_member_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy1_tbl_member_biodata" Association="Self.FK_tbl_hy1_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy1" EntitySet="tbl_hy1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy2_tbl_hy1" Association="Self.FK_tbl_hy2_tbl_hy1">
+            <End Role="tbl_hy1" EntitySet="tbl_hy1" />
+            <End Role="tbl_hy2" EntitySet="tbl_hy2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy2_tbl_member_biodata" Association="Self.FK_tbl_hy2_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy2" EntitySet="tbl_hy2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy3_tbl_hy2" Association="Self.FK_tbl_hy3_tbl_hy2">
+            <End Role="tbl_hy2" EntitySet="tbl_hy2" />
+            <End Role="tbl_hy3" EntitySet="tbl_hy3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy3_tbl_member_biodata" Association="Self.FK_tbl_hy3_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy3" EntitySet="tbl_hy3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy4_tbl_hy3" Association="Self.FK_tbl_hy4_tbl_hy3">
+            <End Role="tbl_hy3" EntitySet="tbl_hy3" />
+            <End Role="tbl_hy4" EntitySet="tbl_hy4" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy4_tbl_member_biodata" Association="Self.FK_tbl_hy4_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy4" EntitySet="tbl_hy4" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy5_tbl_hy4" Association="Self.FK_tbl_hy5_tbl_hy4">
+            <End Role="tbl_hy4" EntitySet="tbl_hy4" />
+            <End Role="tbl_hy5" EntitySet="tbl_hy5" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_hy5_tbl_member_biodata" Association="Self.FK_tbl_hy5_tbl_member_biodata">
+            <End Role="tbl_member_biodata" EntitySet="tbl_member_biodata" />
+            <End Role="tbl_hy5" EntitySet="tbl_hy5" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ChurchAnalyticsModelStoreContainer" CdmEntityContainer="ChurchAnalytics">
+          <EntitySetMapping Name="tbl_city">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_city">
+              <MappingFragment StoreEntitySet="tbl_city">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="city_name" ColumnName="city_name" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_country">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_country">
+              <MappingFragment StoreEntitySet="tbl_country">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="country_name" ColumnName="country_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_department">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_department">
+              <MappingFragment StoreEntitySet="tbl_department">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_department_member_position">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_department_member_position">
+              <MappingFragment StoreEntitySet="tbl_department_member_position">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tbl_position_id" ColumnName="tbl_position_id" />
+                <ScalarProperty Name="tbl_department_id" ColumnName="tbl_department_id" />
+                <ScalarProperty Name="tbl_member_biodata_id" ColumnName="tbl_member_biodata_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_hierarchy_description">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_hierarchy_description">
+              <MappingFragment StoreEntitySet="tbl_hierarchy_description">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hierarchy_level" ColumnName="hierarchy_level" />
+                <ScalarProperty Name="hierarchy_name" ColumnName="hierarchy_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_hy1">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_hy1">
+              <MappingFragment StoreEntitySet="tbl_hy1">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="leaders_id" ColumnName="leaders_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_hy2">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_hy2">
+              <MappingFragment StoreEntitySet="tbl_hy2">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tbl_hy1_id" ColumnName="tbl_hy1_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="leaders_id" ColumnName="leaders_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_hy3">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_hy3">
+              <MappingFragment StoreEntitySet="tbl_hy3">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tbl_hy2_id" ColumnName="tbl_hy2_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="leaders_id" ColumnName="leaders_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_hy4">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_hy4">
+              <MappingFragment StoreEntitySet="tbl_hy4">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tbl_hy3_id" ColumnName="tbl_hy3_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="leaders_id" ColumnName="leaders_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_hy5">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_hy5">
+              <MappingFragment StoreEntitySet="tbl_hy5">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tbl_hy4_id" ColumnName="tbl_hy4_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="leaders_id" ColumnName="leaders_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_member_biodata">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_member_biodata">
+              <MappingFragment StoreEntitySet="tbl_member_biodata">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="house_address" ColumnName="house_address" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="marital_status" ColumnName="marital_status" />
+                <ScalarProperty Name="house_fellowship_id" ColumnName="house_fellowship_id" />
+                <ScalarProperty Name="date_of_initial_attendant" ColumnName="date_of_initial_attendant" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_organization">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_organization">
+              <MappingFragment StoreEntitySet="tbl_organization">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="organization_name" ColumnName="organization_name" />
+                <ScalarProperty Name="organization_address" ColumnName="organization_address" />
+                <ScalarProperty Name="organization_state" ColumnName="organization_state" />
+                <ScalarProperty Name="organization_city" ColumnName="organization_city" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="orgdiscription" ColumnName="orgdiscription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_position">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_position">
+              <MappingFragment StoreEntitySet="tbl_position">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="position_name" ColumnName="position_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_state">
+            <EntityTypeMapping TypeName="ChurchAnalyticsModel.tbl_state">
+              <MappingFragment StoreEntitySet="tbl_state">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="state_name" ColumnName="state_name" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
